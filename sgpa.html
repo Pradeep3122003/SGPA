@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SGPA Calculator">
+    <meta name="keywords" content="SGPA,SGPA calculator,sgpa,sgpa calculator,calculator,percentage calculator,percentage">
+    <meta name="robots" content="INDEX, FOLLOW">
+    <title>SGPA</title>
+    <style>
+        #con {
+            background-color: yellow;
+            display: block;
+            margin: auto;
+            height: auto;
+            width: 80vw;
+            padding: calc(2vh + 2vw);
+        }
+
+        .sub {
+            display: block;
+            margin: 2vh auto;
+            text-align: center;
+
+        }
+        body{
+            background: linear-gradient(30deg,gray,black,blue,green);
+        }
+
+        input {
+            width: calc(4vh + 4vw);
+            border-radius: 12px;
+            margin: 10px;
+            color: red;
+            font-size: calc(1.8vh + 1.8vw);
+            font-weight: bold;
+            text-align: center;
+        }
+        .calc{
+            font-size: calc(5vh + 5vw);
+            text-align: center;
+            color: aliceblue;
+        }
+
+        @media screen and (max-width:600px) {
+            input {
+                width: calc(5.5vh + 5.5vw);
+                height: calc(4vh + 4vw);
+                margin: calc(1.5vh + 1.5vw);
+                color: red;
+                font-size: calc(1.8vh + 1.8vw);
+                font-weight: bold;
+                text-align: center;
+
+            }
+            .clac{
+                font-size: calc(3vh + 3vw);
+            }
+
+            #last input {
+                width: 20vw;
+                font-weight: bold;
+                font-size: calc(1.5vh + 1.5vw);
+                background: -webkit-linear-gradient(20deg, blue, gray);
+                color: white;
+            }
+        }
+
+        .head input {
+            width: calc(8vh + 8vw);
+            display: inline-block;
+            text-align: center;
+            font-size: calc(1.5vh + 1.5vw);
+            font-weight: bold;
+            background: red;
+            color: aliceblue;
+        }
+
+        .result {
+            height: auto;
+            padding-top: 1vh;
+            padding-bottom: 1vh;
+            width: 80vw;
+            border-radius: 20px;
+            background: black;
+            font-size: calc(2vw + 2vh);
+            color: rgb(255, 255, 255);
+            text-align: center;
+            text-shadow: 2px 2px 3px rgb(16, 255, 195);
+
+        }
+
+        .result div {
+            margin-top: 1vh;
+            margin-bottom: 1vh;
+        }
+
+        #last input {
+            width: 40vw;
+            font-weight: bold;
+            font-size: calc(1.5vh + 1.5vw);
+            background: -webkit-linear-gradient(20deg, blue, gray);
+            color: white;
+        }
+        .end{
+            margin: auto;
+            text-align: center;
+            font-size: calc(1.5vh + 1.5vw);
+            color: #ffffff;
+            text-shadow: 2px 2px 3px red;
+        }
+        .end img{
+            height: calc(5vh + 5vw);
+            width: calc(5vh + 5vw);
+        }
+    </style>
+</head>
+
+<body>
+<div class="calc">SGPA Calculator</div>
+    <div id="con">
+        <div class="head sub">
+            <input type="text" value="Credit" readonly>
+            <input type="text" value="Marks" readonly>
+        </div>
+        <div id="sub1" class="sub">
+            <input type="number" name="" value="0" id="c1">
+            <input type="number" name="" value="0" id="m1">
+        </div>
+
+        <div id="sub2" class="sub">
+            <input type="number" name="" value="0" id="c2">
+            <input type="number" name="" value="0" id="m2">
+        </div>
+        <div id="sub3" class="sub">
+            <input type="number" name="" value="0" id="c3">
+            <input type="number" name="" value="0" id="m3">
+        </div>
+        <div id="sub4" class="sub">
+            <input type="number" name="" value="0" id="c4">
+            <input type="number" name="" value="0" id="m4">
+        </div>
+        <div id="sub5" class="sub">
+            <input type="number" name="" value="0" id="c5">
+            <input type="number" name="" value="0" id="m5">
+        </div>
+        <div id="sub6" class="sub">
+            <input type="number" name="" value="0" id="c6">
+            <input type="number" name="" value="0" id="m6">
+        </div>
+        <div id="sub7" class="sub">
+            <input type="number" name="" value="0" id="c7">
+            <input type="number" name="" value="0" id="m7">
+        </div>
+        <div id="sub8" class="sub">
+            <input type="number" name="" value="0" id="c8">
+            <input type="number" name="" value="0" id="m8">
+        </div>
+        <div id="sub9" class="sub">
+            <input type="number" name="" value="0" id="c9">
+            <input type="number" name="" value="0" id="m9">
+        </div>
+
+        <div id="last" class="sub">
+            <input type="submit" name="" id="" value="submit" onclick="start()">
+            <input type="reset" name="" id="" value="reset" onclick="res()">
+        </div>
+
+        <div class="result">
+            Total Marks
+            <div id="mark">0</div>
+            Percentage
+            <div id="per">0</div>
+            SGPA
+            <div id="sg">0</div>
+        </div>
+    </div>
+    <br>
+    <div class="end">@code by Pradeep
+        <br><a href="mailto: pradeepkh312@gmail.com"><img src="maillogo.png" alt="mail"></a>
+    </div>
+
+    <script>
+        alert("Enter credits of the respective subject and marks obtained in that subject.\nIf you have less subject than the given boxes you can ignore them.")
+        start = () => {
+            let c1 = parseInt(document.getElementById("c1").value);
+            let c2 = parseInt(document.getElementById("c2").value);
+            let c3 = parseInt(document.getElementById("c3").value);
+            let c4 = parseInt(document.getElementById("c4").value);
+            let c5 = parseInt(document.getElementById("c5").value);
+            let c6 = parseInt(document.getElementById("c6").value);
+            let c7 = parseInt(document.getElementById("c7").value);
+            let c8 = parseInt(document.getElementById("c8").value);
+            let c9 = parseInt(document.getElementById("c9").value);
+            let m1 = parseInt(document.getElementById("m1").value);
+            let m2 = parseInt(document.getElementById("m2").value);
+            let m3 = parseInt(document.getElementById("m3").value);
+            let m4 = parseInt(document.getElementById("m4").value);
+            let m5 = parseInt(document.getElementById("m5").value);
+            let m6 = parseInt(document.getElementById("m6").value);
+            let m7 = parseInt(document.getElementById("m7").value);
+            let m8 = parseInt(document.getElementById("m8").value);
+            let m9 = parseInt(document.getElementById("m9").value);
+            let allc = c1 + c2 + c3 + c4 + c5 + c6 + c7 + c8 + c9;
+            let per = 9;
+            function grade(x) {
+                if (x >= 90) {
+                    return 10;
+                }
+                else if (x >= 80) {
+                    return 9;
+                }
+                else if (x >= 70) {
+                    return 8;
+                }
+                else if (x >= 60) {
+                    return 7;
+                }
+                else if (x >= 50) {
+                    return 6;
+                }
+                else if (x >= 40) {
+                    return 5;
+                }
+                else if (x >= 30) {
+                    return 4;
+                }
+                else if (x >= 20) {
+                    return 3;
+                }
+                else if (x >= 10) {
+                    return 2;
+                }
+                else if (x >= 1) {
+                    return 1;
+                }
+                else {
+                    return 0;
+                    per = per - 1;
+                }
+            }
+            let credit = c1+c2+c3+c4+c5+c6+c7+c8+c9;
+            let marks = m1+m2+m3+m4+m5+m6+m7+m8+m9;
+            let sgpa = grade(m1) * c1 + grade(m2) * c2 + grade(m3) * c3 + grade(m4) * c4 + grade(m5) * c5 + grade(m6) * c6 + grade(m7) * c7 + grade(m8) * c8 + grade(m9) * c9;
+            document.getElementById("sg").innerHTML = sgpa/credit;
+            document.getElementById("mark").innerHTML = marks;
+            document.getElementById("per").innerHTML = marks / per;
+        
+        }
+
+    </script>
+</body>
+
+</html>
