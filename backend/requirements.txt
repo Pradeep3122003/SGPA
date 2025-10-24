@@ -2,9 +2,14 @@ flask
 flask-cors
 flask-bcrypt
 flask-jwt-extended
+flask_pymongo
 pymongo
 dnspython
 gunicorn
 python-dotenv
 flask-limiter
 marshmallow
+redis
+pytest
+pytest-flask
+mongomock
